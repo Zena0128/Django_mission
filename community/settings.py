@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ys2_u5egm0^rirg6i+_pnt#7gh$unzq^jg4fg@ttcl_50$3078
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['port-0-django-mission-kvmh2mljr05men.sel4.cloudtype.app', '127.0.0.1']
 
 
 # Application definition
@@ -83,10 +83,21 @@ WSGI_APPLICATION = 'community.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': '',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'svc.sel4.cloudtype.app',
+        'PORT': ''
     }
 }
 
