@@ -35,6 +35,10 @@ class BoardDetailUpdate(UpdateAPIView):
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsOwnerOrReadOnly]
 
+    def perform_update(self, serializer):
+        comments = Comment.objects.filter(post=Board.objects.get(id=self.request.path.split("/")[-3])).all()
+        serializer.save(comments=comments)
+
 
 class BoardDetailDestroy(DestroyAPIView):
     queryset = Board.objects.all()

@@ -37,7 +37,7 @@ class BoardSerializer(serializers.ModelSerializer):
 
 class BoardSerializerWithPk(serializers.ModelSerializer):
     isAnonymous = serializers.BooleanField(write_only=True)
-    comments = CommentSerializer(many=True)
+    comments = CommentSerializer(many=True, required=False)
 
     class Meta:
         model = Board
