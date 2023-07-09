@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.generics import ListCreateAPIView, ListAPIView, RetrieveAPIView, \
     UpdateAPIView, DestroyAPIView
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from . import models
@@ -64,7 +64,7 @@ class CommentList(ListCreateAPIView):
 class SameUniversity(ListAPIView):
     serializer_class = BoardSerializer
     authentication_classes = [JWTAuthentication]
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         university = self.request.user.university
