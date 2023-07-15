@@ -68,5 +68,5 @@ class SameUniversity(ListAPIView):
 
     def get_queryset(self):
         university = self.request.user.university
-        return Board.objects.select_related('user').filter(user__university=university).all()
+        return Board.objects.select_related('user').filter(user__university=university).all()  # user 테이블 참조
 

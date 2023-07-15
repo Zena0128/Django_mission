@@ -37,7 +37,7 @@ class BoardSerializer(serializers.ModelSerializer):
 
 class BoardSerializerWithPk(serializers.ModelSerializer):
     isAnonymous = serializers.BooleanField(write_only=True)
-    comments = CommentSerializer(many=True, required=False)
+    comments = CommentSerializer(many=True, required=False)  # 이거 주석 처리하면 comments에 comment list가 아니라 comment id가 나옴
 
     class Meta:
         model = Board
